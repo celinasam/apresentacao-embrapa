@@ -1,0 +1,53 @@
+ \section{Introdução}
+
+  \begin{frame}{Motivação}
+     \begin{itemize}
+      \item Este trabalho é uma contribuição para \emph{software} livre em sistemas distribuídos.
+      \item Armazenamento de arquivos é um componente essencial na computação de alto desempenho. 
+      \item Códigos Corretores de Erro (\emph{Erasure codes}) introduzem redundância e tem sido utilizados em sistemas para alcançar confiabilidade e redução do custo de armazenamento.    
+     \end{itemize}
+  \end{frame}
+
+  \begin{frame}{Motivação}
+     \begin{itemize}
+      \item Alguns sistemas que utilizam códigos corretores de erros:
+	\begin{itemize}
+%           \item \emph{Digital Fountain} (\emph{multicasting} multimídia confiável)\cite{Byers:1998}
+            \item \emph{NASA's Deep Space Network} no envio e na recepção de sinais e dados de telemetria
+(\emph{downlinks}) vindos de veículos espaciais (\emph{very distant spacecrafts}) e para enviar telecomandos (\emph{uplinks}) para
+veículos espaciais \cite{Abrantes:2010, Almeida:2007, STO:2010, TDD:2010};
+           \item \emph{Delay and Disruption Tolerant Networks}, redes de sensores e redes~\emph{peer-to-peer} \cite{Bhagwan:2004, Alencar:2004, Haeberlen:2005, Houri:2009,RTAD:2007, Rodrigues:2005, Wilcox-O'Hearn:2008};
+           \item armazenamento de grande volume de dados \cite{Anderson:1998,Kubiatowicz:2000,  Saito:2004, Schmuck:2002, Storer:2008,
+Storer:2009, Xia:2006}, como também o sistema de arquivos distribuído do Hadoop (HDFS)~\cite{HDFS-503:2010}.
+%           \item sistema de arquivos distribuído do Hadoop (HDFS)~\cite{HDFS-503:2010}
+	\end{itemize}
+     \end{itemize}
+  \end{frame}
+
+  \begin{frame}{Motivação}
+     \begin{itemize}
+      \item O HDFS, por padrão, implementa alta disponibilidade dos dados via replicação simples dos blocos de dados. Esta abordagem acarreta um alto custo de armazenamento para garantir que os dados estarão sempre disponíveis.
+      \item Esforços iniciais nessa linha foram feitos utilizando técnicas de \emph{Redundant Array of Independent Drives} (RAID)~\cite{Patterson:1988,HDFS-503:2010} e mais recentemente do algoritmo Reed-Solomon (RS)~\cite{Reed:1960,MR-1969:2010,MR-1970:2010}.
+     \end{itemize}
+  \end{frame}
+
+  \begin{frame}{Motivação}
+     \begin{itemize}
+        \item RAID
+        \item Reed-Solomon
+     \end{itemize}
+  \end{frame}
+
+  \begin{frame}{Objetivos deste trabalho}
+
+  \begin{itemize}
+     \item avaliação de desempenho, ganhos, e custos de diferentes
+  estratégias de códigos corretores de erro;
+%     \item implementação de otimizações ou extensões para o código que
+%  atualmente implementa Reed-Solomon, tentando melhorar,
+%  principalmente, a parte de distribuição de blocos;
+     \item implementação de novos algoritmos (e.g., Tornado codes) e
+  extensão da interface atual para aceitá-los;
+     \item integração do código atual com o HDFS.
+     \end{itemize}
+  \end{frame}
