@@ -27,7 +27,7 @@ Storer:2009, Xia:2006}, como também o sistema de arquivos distribuído do Hadoo
   \begin{frame}{Motivação}
      \begin{itemize}
       \item O HDFS, por padrão, implementa alta disponibilidade dos dados via replicação simples dos blocos de dados. Esta abordagem acarreta um alto custo de armazenamento para garantir que os dados estarão sempre disponíveis.
-      \item Esforços iniciais nessa linha foram feitos utilizando técnicas de \emph{Redundant Array of Independent Drives} (RAID)~\cite{Patterson:1988,HDFS-503:2010} e mais recentemente do algoritmo Reed-Solomon (RS)~\cite{Reed:1960,MR-1969:2010,MR-1970:2010}.
+      \item Esforços iniciais nessa linha foram feitos utilizando técnicas de \emph{Redundant Array of Independent Drives} (RAID)~\cite{HDFS-503:2010,Patterson:1988} e mais recentemente do algoritmo Reed-Solomon (RS)~\cite{MR-1969:2010}.
      \end{itemize}
   \end{frame}
 
@@ -43,9 +43,9 @@ Storer:2009, Xia:2006}, como também o sistema de arquivos distribuído do Hadoo
   \begin{itemize}
      \item avaliação de desempenho, ganhos, e custos de diferentes
   estratégias de códigos corretores de erro;
-%     \item implementação de otimizações ou extensões para o código que
-%  atualmente implementa Reed-Solomon, tentando melhorar,
-%  principalmente, a parte de distribuição de blocos;
+     \item implementação de otimizações ou extensões para o código que
+  atualmente implementa Reed-Solomon, tentando melhorar,
+  principalmente, a parte de distribuição de blocos;
      \item implementação de novos algoritmos (e.g., Tornado codes) e
   extensão da interface atual para aceitá-los;
      \item integração do código atual com o HDFS.
