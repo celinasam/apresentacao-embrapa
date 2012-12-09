@@ -1,0 +1,58 @@
+\section{Resultados}
+
+\begin{frame}{Resultados}
+
+   \begin{itemize}
+
+      \item Esse trabalho estendeu e alterou código fonte distribuído sob a licença Apache. 
+
+      \item Com as codificações RAID, RS, já disponíveis no HDFS e as codificações Tornado e Turbo-like, implementadas por esse trabalho de mestrado, o HDFS disponibiliza, com uma flexível configuração, as principais codificações para canal binário simétrico
+%, ou seja, códigos lineares, sendo que, o único código cíclico é RS. RAID, Tornado e Turbo-\emph{like} são códigos que são um sub-conjunto de códigos LDPC, que são códigos baseados em grafos regulares e em grafos irregulares.
+
+      \item Os diagramas de herança e de colaboração para as classes, o código dos procedimentos de compilação e de geração do arquivo \emph{tarball} e o código da implementação das codificações foram disponibilizados em repositório público \footnote{https://github.com/celinasam/}.
+
+  \end{itemize}
+
+\end{frame}
+
+\begin{frame}{Resultados}
+
+   \begin{itemize}
+
+      \item Foram criados um site \footnote{https://sites.google.com/site/newerasurecodinginhadoop} com comentários dos resultados obtidos desse trabalho e um \emph{blog} \footnote{http://mcss.posterous.com/} para comentar assuntos que a autora considerou de grande interesse para outras pessoas.
+
+      \item Um dos cenários de uso de codificações baseadas em grafos seria em ambientes de \emph{data center}, onde um grande número de máquinas poderiam falhar. Com blocos de paridade íntegros dos arquivos com, pelo menos, 1 dos blocos de dados dos mesmos arquivos disponível, há uma grande probabilidade desse tipo de codificação recuperar os blocos de dados corrompidos. Esse é uma aplicação das codificações implementadas por esse trabalho.
+  \end{itemize}
+
+\end{frame}
+
+\begin{frame}{Trabalhos Futuros}
+
+   \begin{itemize}
+
+      \item Esse trabalho discutiu esquemas adequados de redundância de dados apenas sobre o aspecto do esquema de dados, sem comentar algoritmos de atualização das réplicas. O teorema da Codificação do Canal~\cite{Abrantes:2010,Schwartz:1990} afirma que um sistema com largura de banda a maior possível tem uma capacidade de canal finita. Em esboços preliminares, comparando-se, para uma dada codificação, pode-se concluir que a probabilidade de erro em uma palavra código sem codificação é maior que a probabilidade de erro em uma palavra código com codificação.
+
+       \item O estudo da independência das réplicas de um esquema de redundância é um campo promissor para pesquisas. A avaliação de esquemas de redundância é muitas vezes baseada na suposição de que as réplicas falham de forma independente. Na prática, as falhas não são tão independentes, segundo \cite{Weatherspoon:2002:02,Baker:2006}.
+
+%        \item A construção de novas codificações, aplicando técnicas como as apresentadas no \emph{paper} de Andrade, Shan e Khan~\cite{Andrade:2011} apresenta algumas implicações, o que provavelmente, nesse caso, significa alterações no micro-código da linguagem assembler de uma plataforma software e também uma possível redução no número de operações para codificar e/ou decodificar em detrimento do aumento do tamanho do armazenamento de dados.
+
+  \end{itemize}
+
+\end{frame}
+
+\begin{frame}{Trabalhos Futuros}
+   \begin{itemize}
+
+        \item Uma extensão do algoritmo da camada RAID pode melhorar o desempenho da tolerância à falhas.
+%, pois RAID demonstra ser a codificação mais simples de se implementar que outras que exigem um projeto muito sofisticado do decodificador.
+
+        \item Aplicações de códigos corretores de erros em outros canais binários simétricos e suas extensões como \emph{joint source–channel coding} parecem uma pesquisa promissora, pois "contenar" codificação de fonte e de canal, tem sido proposto para implementar aplicações que tem requisitos de tempo-real como transmissão de áudio e imagem em um canal binário simétrico com ruído~\cite{JSCC:2012}.
+
+        \item O estudo e a implementação de outros mecanismos e técnicas para redução de armazenamento e disponibilidade de dados, otimizando o desempenho de codificações baseadas em grafos, como códigos LDPC
+%, também é um desafio, visto que, o número de operações para codificar e/ou decodificar pode ser maior com essas codificações do que com outras, como códigos cíclicos, cujo projeto do decodificador é mais complexo.
+
+        \item O estudo e implementação de aplicações de códigos corretores de erros, tanto a com memória como a sem memória, para os canais do DNA e do RNA~\cite{Rocha:2010,Faria:2012} é uma pesquisa bastante desafiadora e promissora.
+
+  \end{itemize}
+
+\end{frame}

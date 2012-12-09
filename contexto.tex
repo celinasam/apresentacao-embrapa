@@ -1,8 +1,95 @@
  \section{Contexto em Sistemas Distribuídos e em Software Livre}
 
-  \begin{frame}{Motivação}
+  \begin{frame}{Sistemas de Arquivos Distribuídos}
      \begin{itemize}
-        \item Software Livre, Open-source
-        \item Sistemas Distribuídos
+      \item<1-> Processar um volume relativamente grande de dados é possível, em poucas horas, com alguns dólares e com algumas máquinas: http://aws.amazon.com/
+      \item<2-> Isto também pode ser feito com o Hadoop, um \emph{framework} para processamento de dados em larga escala
+      \item<3-> Volume grande de dados ?
+          \begin{itemize}
+             \item<4-> megabyte - $10^6$ - uma foto
+             \item<5-> gigabyte - $10^9$ - um DVD armazena 4.7 GB de um filme
+             \item<6-> terabyte - $10^{12}$ - 200 filmes
+             \item<7-> petabyte - $10^{15}$
+             \item<8-> exabyte - $10^{18}$
+             \item<9-> zettabyte - $10^{21}$ - um disco de 140 GB para cada pessoa no mundo
+          \end{itemize}
      \end{itemize}
   \end{frame}
+
+  \begin{frame}{Software Open Source}
+     \begin{itemize}
+        \item<1-> O Hadoop disponibiliza um armazenamento compartilhado (HDFS/Hadoop \emph{Distributed Filesystem}) e um sistema de análise (MapReduce).
+         \item<2-> Facebook, Google, Twitter, Microsoft e IBM armazenam dados do tamanho de petabytes e utilizam o Hadoop.
+         \item<3-> O projeto Hadoop é hoje um projeto independente dentro da hierarquia de projetos da Apache Software Foundation.
+     \end{itemize}
+  \end{frame}
+
+  \begin{frame}{RDBMS X HDFS/MapReduce}
+    Por que não usamos banco de dados ?
+     \begin{itemize}
+        \item<1->  Em um banco de dados, uma atualização da árvore-B pode gerar muitas operações de \emph{seeking}.
+        \item<2->  \emph{seek time} - processo de mover a cabeça do disco para um dado local no disco com o objetivo de ler ou de escrever dados
+        \item<3->  É mais rápido usar um algoritmo de ordenação (\emph{sort}/\emph{merge}) para:
+          \begin{itemize}
+             \item<4-> analisar um grande volume de dados do tamanho de petabytes
+             \item<5-> reconstruir toda a base de dados
+          \end{itemize}
+      \end{itemize}
+  \end{frame}
+
+  \begin{frame}{RDBMS X HDFS/MapReduce}
+{\small
+        \begin{center}
+          \begin{tabular}{|p{2cm}||p{3.5cm}||p{3.5cm}|}
+            \hline
+& Aplicação para RDBMS & Aplicação para HDFS/MapReduce\\ \hline
+tamanho & gigabytes & petabytes\\ \hline
+acesso & OLTP(interativo) e \emph{batch} & \emph{batch}\\ \hline
+atualização & lê e escreve muitas vezes & escreve uma vez, lê muitas vezes\\ \hline
+esquema & estático & dinâmico\\ \hline
+integridade & alta & baixa\\ \hline
+escala & não linear & linear\\ \hline
+          \end{tabular}
+        \end{center}
+}
+
+Fonte: \cite{White:2009}
+  \end{frame}
+
+  \begin{frame}{HDFS}
+
+HFS disponibiliza espaço para sistema de arquivos e permite que os dados do usuário sejam armazenados em arquivos. Internamente, um arquivo é dividido em um ou mais blocos e esses blocos são armazenados em um conjunto de DataNodes. O tamanho \emph{default} de cada bloco é 64MB.
+
+    \begin{figure}[hb]
+      \centering
+      \includegraphics[scale=0.4]{HDFS-arquitetura-replicacao-2.jpg}
+      \caption{Arquitetura do HFS - Datanodes e Blocos \cite{Hadoop:2010}}
+      \label{fig7:hfs}
+    \end{figure} 
+
+  \end{frame}
+
+
+  \begin{frame}{MapReduce}
+
+     \begin{itemize}
+       \item<1-> Os dados que MapReduce processa são dados não estruturados como texto ou imagens. O MapReduce tenta colocar esses dados no nó onde são feitas as computações, desta forma, o acesso aos dados é rápido, pois é "mais" local.
+       \item<2-> O MapReduce pode resolver problemas genéricos cujos dados podem ser divididos em matrizes de dados, para cada matriz a mesma computação é necessária e não existe necessidade de comunicação entre as tarefas.
+       \item<3-> Problemas como empacotamento, linha de fábrica, otimização não são resolvidos pelo modelo de computação do MapReduce.
+     \end{itemize}
+
+  \end{frame}
+
+  \begin{frame}{MapReduce}
+
+Problema genérico:
+\begin{itemize}
+   \item iteração sobre um número grande de registros
+   \item \emph{Map} extrai algo de cada registro (chave, valor)
+   \item rearranjo (\emph{shuffle} e ordenação de resultados intermediários por (chave, valor)
+   \item \emph{Reduce} agrega os resultados intermediários 
+   \item geração da saída
+\end{itemize}
+
+  \end{frame}
+
