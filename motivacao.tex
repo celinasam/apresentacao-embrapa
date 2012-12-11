@@ -3,8 +3,8 @@
   \begin{frame}{Motivação}
      \begin{itemize}
       \item Este trabalho é uma contribuição para \emph{software} livre em sistemas distribuídos.
-      \item Armazenamento de arquivos é um componente essencial na computação de alto desempenho. 
-      \item Códigos Corretores de Erro (\emph{Erasure codes}) introduzem redundância e tem sido utilizados em sistemas para alcançar confiabilidade e redução do custo de armazenamento.    
+      \item Armazenamento de arquivos $===>$ componente essencial na computação de alto desempenho. 
+      \item Códigos Corretores de Erro (\emph{Erasure codes}) introduzem redundância para alcançar confiabilidade e redução do custo de armazenamento.    
      \end{itemize}
   \end{frame}
 
@@ -12,25 +12,25 @@
    \begin{figure}[h]
      \centering
      \includegraphics[scale=.25]{stalling-channel-capacity.jpg}
-     \caption{Efeito do ruído no sinal digital \cite{Plank:2004}}
+     \caption{Efeito do ruído no sinal digital \cite{Stallings:2005}}
      \label{fig1:ersd}
    \end{figure}
   \end{frame}
 
-% http://worldtelevisao.blogspot.com.br/2011/05/programas-infantis-que-fizeram-historia.html
   \begin{frame}{Motivação}
      \begin{itemize}
-         \item Popularização dos computadores e as pesquisas espaciais $==>$ os códigos corretores tornaram-se parte comum de comunicações por satélite, de redes de computadores, de armazenamento em discos óticos e outros meios magnéticos.
+         \item Popularização dos computadores e as pesquisas espaciais $==>$ os códigos corretores de erros tornaram-se parte comum de comunicações por satélite, de redes de computadores, de armazenamento em discos óticos e outros meios magnéticos.
          \item Uso frequente em nosso cotidiano
 %quando se assiste a um programa de televisão, quando se ouve música a partir de um CD, quando se atende um telefonema, quando se assiste um filme gravado em DVD, quando se navega pela internet.
      \end{itemize}
   \end{frame}
 
+% http://worldtelevisao.blogspot.com.br/2011/05/programas-infantis-que-fizeram-historia.html
   \begin{frame}{Motivação}
    \begin{figure}[h]
      \centering
      \includegraphics[scale=.3]{enio-beto.jpg}
-     \caption{Assistir programa de televisão Vila Sésamo\cite{Plank:2004}}
+     \caption{Assistir programa de televisão Vila Sésamo\cite{WTPI:2012}}
      \label{fig7:tv}
    \end{figure}
 
@@ -38,7 +38,7 @@
    \begin{figure}[h]
      \centering
      \includegraphics[scale=0.2]{music_cd.jpg}
-     \caption{Ouvir música a partir de um CD\cite{Plank:2004}}
+     \caption{Ouvir música a partir de um CD\cite{MNA:2012}}
      \label{fig8:cd}
    \end{figure}
   \end{frame}
@@ -48,7 +48,7 @@
    \begin{figure}[h]
      \centering
      \includegraphics[scale=0.3]{telephone-ringing.jpg}
-     \caption{Atender um telefonema\cite{Plank:2004}}
+     \caption{Atender um telefonema\cite{VF:2012}}
      \label{fig9:tel}
    \end{figure}
 
@@ -57,7 +57,7 @@
    \begin{figure}[h]
      \centering
      \includegraphics[scale=0.2]{internet-celular.jpg}
-     \caption{Navegar pela internet\cite{Plank:2004}}
+     \caption{Navegar pela internet\cite{FBP:2012}}
      \label{fig10:internet}
    \end{figure}
   \end{frame}
@@ -69,10 +69,13 @@
 %           \item \emph{Digital Fountain} (\emph{multicasting} multimídia confiável)\cite{Byers:1998}
             \item \emph{NASA's Deep Space Network} no envio e na recepção de sinais e dados de telemetria
 (\emph{downlinks}) vindos de veículos espaciais (\emph{very distant spacecrafts}) e para enviar telecomandos (\emph{uplinks}) para
-veículos espaciais \cite{Abrantes:2010, Almeida:2007, STO:2010, TDD:2010};
-           \item \emph{Delay and Disruption Tolerant Networks}, redes de sensores e redes~\emph{peer-to-peer} \cite{Bhagwan:2004, Alencar:2004, Haeberlen:2005, Houri:2009,RTAD:2007, Rodrigues:2005, Wilcox-O'Hearn:2008};
-           \item armazenamento de grande volume de dados \cite{Anderson:1998,Kubiatowicz:2000,  Saito:2004, Schmuck:2002, Storer:2008,
-Storer:2009, Xia:2006}, como também o sistema de arquivos distribuído do Hadoop (HDFS)~\cite{HDFS-503:2010}.
+% veículos espaciais \cite{Abrantes:2010, Almeida:2007, STO:2010, TDD:2010};
+veículos espaciais;
+%           \item \emph{Delay and Disruption Tolerant Networks}, redes de sensores e redes~\emph{peer-to-peer} \cite{Bhagwan:2004, Alencar:2004, Haeberlen:2005, Houri:2009,RTAD:2007, Rodrigues:2005, Wilcox-O'Hearn:2008};
+           \item \emph{Delay and Disruption Tolerant Networks}, redes de sensores e redes~\emph{peer-to-peer};
+%           \item armazenamento de grande volume de dados \cite{Anderson:1998,Kubiatowicz:2000,  Saito:2004, Schmuck:2002, Storer:2008,
+% Storer:2009, Xia:2006}, como também o sistema de arquivos distribuído do Hadoop (HDFS)~\cite{HDFS-503:2010}.
+           \item armazenamento de grande volume de dados, como também o sistema de arquivos distribuído do Hadoop (HDFS).
 %           \item sistema de arquivos distribuído do Hadoop (HDFS)~\cite{HDFS-503:2010}
 	\end{itemize}
      \end{itemize}
@@ -108,7 +111,7 @@ Storer:2009, Xia:2006}, como também o sistema de arquivos distribuído do Hadoo
    \begin{figure}[h]
      \centering
      \includegraphics[scale=.4]{bsfii6.jpg}
-     \caption{\emph{NASA's Deep Space Network}\cite{Plank:2004}}
+     \caption{\emph{NASA's Deep Space Network}\cite{JPLCIT:2012}}
      \label{fig2:nasa}
    \end{figure}
   \end{frame}
@@ -118,7 +121,7 @@ Storer:2009, Xia:2006}, como também o sistema de arquivos distribuído do Hadoo
    \begin{figure}[h]
      \centering
      \includegraphics[scale=.5]{facebook-data-center.jpg}
-     \caption{Facebook data center\cite{Plank:2004}}
+     \caption{Facebook data center\cite{VBFB:2012}}
      \label{fig5:fdc}
    \end{figure}
   \end{frame}
@@ -152,14 +155,25 @@ onde o primeiro bit $1$ está na $i$-posição e o último bit $1$ está na $(i+
 \end{definition}
      \end{itemize}
   \end{frame}
+
 % \footnote{Essa definição foi apresentada pelo Prof.dr.ir Henk C.A. Van Tilborg, pesquisador da Technische Universiteit Eindhoven, na sua palestra Old and New(er) Results in the Theory of Burst-Correcting Codes em 23 de novembro no Instituto de Matemática, Estatística e Computação Científica da Universidade Estadual de Campinas.}
+
+ \begin{frame}{Motivação}
+    \begin{figure}[hb]
+      \centering
+      \includegraphics[scale=0.35]{raid5.jpg}
+      \caption{RAID 5: 1 bloco de paridade e \emph{stripe} = 4 blocos \cite{MR-2036:2010}}
+      \label{fig5:raid5}
+    \end{figure}
+ \end{frame}
+
 
 % http://pic.dhe.ibm.com/infocenter/powersys/v3r1m5/index.jsp?topic=/arebk/raidsix.htm
   \begin{frame}{Motivação}
    \begin{figure}[h]
      \centering
      \includegraphics[scale=.4]{raid6.jpg}
-     \caption{RAID 6 clássico "fatia" dados e paridade, através dos discos, como num arranjo. A paridade P e Q são geradas pela operação \emph{bitwise} XOR e pelo algoritmo Reed-Solomon.\cite{Plank:2004}}
+     \caption{RAID 6 clássico "fatia" dados e paridade, através dos discos, como num arranjo. A paridade P e Q são geradas pela operação \emph{bitwise} XOR e pelo algoritmo Reed-Solomon.\cite{IBMR6:2012}}
      \label{fig6:raid6}
    \end{figure}
   \end{frame}
