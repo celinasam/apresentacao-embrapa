@@ -4,10 +4,9 @@
      \begin{itemize}
         \item<1-> \emph{Erasure Coding}
         \item<2-> Exame de Qualificação para o Mestrado (EQM)
-        \item<2-> Foco: armazenamento de dados
-        \item<3-> Códigos corretores de erro disponíveis na versão 0.22: RAID e RS
-        \item<4-> Artigos e material de disciplinas de universidades de Portugal, Índia, Paquistão e EUA
-        \item<5-> Facebook e Yahoo
+        \item<3-> Foco: armazenamento de dados
+        \item<4-> Códigos corretores de erro disponíveis na versão 0.22: RAID e RS
+        \item<5-> Artigos e material de disciplinas de universidades de Portugal, Índia, Paquistão e EUA
      \end{itemize}
   \end{frame}
 
@@ -16,7 +15,10 @@
         \item<1-> Congruência linear
         \item<2-> Resto da divisão euclidiana
         \item<3-> Independência linear
-        \item<4-> Espaço Vetorial, Grupo, Anel e Corpo
+        \item<4-> Espaço Vetorial, Grupo, Anel e Corpo (principalmente $\mathbb{GF}_2$ e $\mathbb{GF}_{256}$)
+        \item<5-> Sistema de Equações Lineares
+        \item<6-> Matrizes
+        \item<7-> Polinômios
      \end{itemize}
   \end{frame}
 
@@ -40,10 +42,11 @@
 
   \begin{frame}{Conhecer e Compilar o código disponível}
      \begin{itemize}
-        \item<1-> O \emph{kernel} do Hadoop é constituído do core, hdfs e mapred.
-        \item<2-> As versões oficiais para instalação (http://www.apache.org/dist/hadoop/core/) e
-        \item<3-> as versões do código-fonte (common, hdfs, mapreduce) estão disponíveis em repositório SVN (https://svn.apache.org/repos/asf/hadoop/common/branches/branch-0.22) 
-        \item<4-> Na atividade \emph{Scripts for building Hadoop 0.22.0 release}  https://issues.apache.org/jira/browse/HADOOP-6846, os mantenedores e contribuidores do Hadoop discutiam como compilar a versão 0.22
+        \item<1-> Facebook, Yahoo, Fundação Apache
+        \item<2-> O \emph{kernel} do Hadoop é constituído do core, hdfs e mapred.
+        \item<3-> As versões oficiais para instalação (http://www.apache.org/dist/hadoop/core/) e
+        \item<4-> as versões do código-fonte (common, hdfs, mapreduce) estão disponíveis em repositório SVN (https://svn.apache.org/repos/asf/hadoop/common/branches/branch-0.22) 
+        \item<5-> Na atividade \emph{Scripts for building Hadoop 0.22.0 release}  https://issues.apache.org/jira/browse/HADOOP-6846, os mantenedores e contribuidores do Hadoop discutiam como compilar a versão 0.22
      \end{itemize}
   \end{frame}
 
@@ -52,18 +55,18 @@
         \item<1-> Eclipse
         \item<2-> comandos do linux, principalmente, grep, find
         \item<3-> Doxygen (gerar diagramas de herança e de colaboração das classes a partir do código)
-        \item<4-> Implementar uma aplicação do \emph{framework} (arcabouço) do Hadoop: conta-palavras, temperatura máxima, \emph{page rank}
+        \item<4-> Implementar uma aplicação do \emph{framework} do Hadoop: conta-palavras, temperatura máxima, \emph{page rank}
         \item<5-> Fazer uma pequena alteração no código do RaidNode () para escrever uma mensagem no arquivo de log, compilar o código modificado, instalá-lo e testá-lo
      \end{itemize}
   \end{frame}
 
   \begin{frame}{Conhecer e Compilar o código disponível}
      \begin{itemize}
-        \item<1-> Hadoop foi escrito quase que inteiramente em Java: construtor de classe, asserções
+        \item<1-> Hadoop foi escrito quase que inteiramente em Java: construtores de classe, asserções
         \item<2-> Java: 1o capítulo do livro vermelho do Sedgewick, Algorithms
-        \item<3-> Entender a camada RAID para poder extende-la
-        \item<3-> Entender de álgebra abstrata e de códigos corretores de erros, uma aplicação em AA
-        \item<4-> Propor os algoritmos dos novos \emph{codecs}: \emph{encode} e \emph{decode}
+        \item<3-> Entender a camada RAID para poder extendê-la
+        \item<4-> Entender de álgebra abstrata e de códigos corretores de erros, uma aplicação em AA
+        \item<5-> Propor os algoritmos dos novos \emph{codecs}: \emph{encode} e \emph{decode}
      \end{itemize}
   \end{frame}
 
@@ -71,5 +74,51 @@
      \begin{itemize}
         \item<1-> Ambiente de edição do código das classes e de compilação do Hadoop 
         \item<2-> Ambiente de instalação do \emph{tarball}
+     \end{itemize}
+  \end{frame}
+
+  \begin{frame}{Testes Iniciais}
+     \begin{itemize}
+        \item<1-> Notebook com Ubuntu $8.04$, $10.04$ ($2GB$ de RAM, \emph{dual-core}, $150MB$ de disco interno, $1.35TB$ de disco externo) 
+        \item<2-> Testes funcionais: \emph{encode} e \emph{decode} das novas codificações e correção de erros no código das classes das codificações implementadas por esse trabalho $===>$ linguagem Java.
+     \end{itemize}
+  \end{frame}
+
+  \begin{frame}{Testes Finais}
+
+     \begin{itemize}
+        \item<1-> Instâncias da Amazon EC2 com Ubuntu $12.10$,  \emph{kernel},  ($613MB$ de RAM, \emph{dual-core}, alguns \emph{gigabytes} de disco) 
+        \item<2-> 3 fases de Testes de Desempenho (coleta de dados) e de Injeção de Falhas das operações de \emph{encode} e \emph{decode} das novas codificações
+        \item<3-> Primeira fase: preparação do ambiente de teste
+        \item<4-> Rede de 4 instâncias: 1 \emph{master/slave} e 3 \emph{slaves}
+     \end{itemize}
+  \end{frame}
+
+  \begin{frame}{Testes Finais}
+     \begin{itemize}
+              \item<1-> Segunda fase: coleta de dados para medição de desempenho da operações de \emph{encode} e de \emph{decode} para cada codificação:
+                  \begin{itemize}
+                     \item replicação simples $2X$
+                     \item replicação simples $3X$
+                     \item $XOR(6,5)$
+                     \item $RS(8,5)$
+                     \item $Tornado(10,5)$
+                     \item $Tornado(20,10)$
+                     \item $Turbo-like(10,5)$
+                     \item $Turbo-like(20,10)$
+                 \end{itemize}
+              \item<2-> Rede de 16 instâncias \emph{large}, provavelmente
+     \end{itemize}
+  \end{frame}
+
+  \begin{frame}{Testes Finais}
+     \begin{itemize}
+        \item<3-> Terceira fase: coleta de dados para medição da injeção de falhas
+           \begin{description}
+              \item [falha em $1$ réplica]: corromper $1$ réplica de blocos de dados de um arquivo
+              \item [falha em $n$ réplicas] corromper $n$ réplicas de blocos de dados de um arquivo
+              \item [falha em réplicas e em blocos de dados] corromper $n$ réplicas de blocos de dados e os $k-1$ blocos de dados de um arquivo
+            \end{description}
+        \item<4-> Rede de 16 instâncias \emph{large}, provavelmente
      \end{itemize}
   \end{frame}
