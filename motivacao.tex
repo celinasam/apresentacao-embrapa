@@ -3,7 +3,7 @@
   \begin{frame}{Motivação}
      \begin{itemize}
       \item Este trabalho é uma contribuição para \emph{software} livre em sistemas distribuídos.
-      \item Armazenamento de arquivos $===>$ componente essencial na computação de alto desempenho. 
+      \item Armazenamento de dados $===>$ componente essencial na computação de alto desempenho. 
       \item Códigos Corretores de Erro (\emph{Erasure codes}) introduzem redundância para alcançar confiabilidade e redução do custo de armazenamento.    
      \end{itemize}
   \end{frame}
@@ -129,30 +129,17 @@ veículos espaciais;
   \begin{frame}{Motivação}
      \begin{itemize}
       \item O HDFS, por padrão, implementa alta disponibilidade dos dados via replicação simples dos blocos de dados. Esta abordagem acarreta um alto custo de armazenamento para garantir que os dados estarão sempre disponíveis.
-      \item Esforços iniciais nessa linha foram feitos utilizando técnicas de \emph{Redundant Array of Independent Drives} (RAID)~\cite{HDFS-503:2010,Patterson:1988} e mais recentemente do algoritmo Reed-Solomon (RS)~\cite{MR-1969:2010}.
+      \item Esforços iniciais $===>$ \emph{Redundant Array of Independent Drives} (RAID)~\cite{HDFS-503:2010,Patterson:1988} e mais recentemente, Reed-Solomon (RS)~\cite{MR-1969:2010}.
      \end{itemize}
   \end{frame}
 
 
   \begin{frame}{Motivação}
      \begin{itemize}
-        \item RAID (\emph{Redundant Arrays of Inexpensive [Independent] Disks} (RAID), do ponto de vista de suas estruturas algébricas, é uma classe de códigos de blocos lineares. RAID é um método para prover tolerância a falhas ou alto desempenho em sistemas de armazenagem utilizando, para isso, distribuição de dados em diferentes dispositivos e uma codificação de correção de erros ou paridade ou replicação de dados~\cite{Ramakrishnan:2003}. RAID foi introduzido por D. A. Patterson na Universidade da California, Berkeley (UC Berkeley) em 1988 \cite{Patterson:1988}.
-         \item O código do Hadoop implementa RAID-5, que na sua versão clássica, "fatia" dados e paridade, através dos discos, como num arranjo. A única paridade é calculada através da operação \emph{bitwise} XOR. 
-     \end{itemize}
-  \end{frame}
-
-  \begin{frame}{Motivação}
-     \begin{itemize}
-        \item Códigos Reed-Solomon (RS) são códigos de bloco, lineares e cíclicos.
-        \item Parametrizáveis $===>$ capacidade de correção de erros pode ser alterada facilmente.
-        \item RS são códigos MDS $===>$ as palavras-código apresentam máxima distância de Hamming entre si, permitida pelo número de dígitos de verificação de paridade do código.
-        \item Segundo os autores em \cite{Almeida:2007,Sloane:1977}, códigos RS são úteis para correção de erros em rajada.
-\begin{definition} {\bf Burst Errors} \index{Burst Errors} Uma sequência de erros em rajada ou \emph{burst errors} de tamanho $b$ é da forma:
-    \begin{align*}
-     (0, 0, \ldots, 0, 1, \ldots , 1, 0, \ldots, 0, 0)
-    \end{align*}
-onde o primeiro bit $1$ está na $i$-posição e o último bit $1$ está na $(i+b-1)$-posição e entre esses primeiro e último bits existe uma sequência de $b$ bits quaisquer.
-\end{definition}
+        \item RAID (\emph{Redundant Arrays of Inexpensive [Independent] Disks} (RAID), do ponto de vista de suas estruturas algébricas, é uma classe de códigos de blocos lineares.
+        \item RAID é um método para prover tolerância a falhas ou alto desempenho em sistemas de armazenagem utilizando, para isso, distribuição de dados em diferentes dispositivos e uma codificação de correção de erros ou paridade ou replicação de dados~\cite{Ramakrishnan:2003}.
+        \item RAID foi introduzido por D. A. Patterson na Universidade da California, Berkeley (UC Berkeley) em 1988 \cite{Patterson:1988}.
+        \item O código do Hadoop implementa RAID-5, que na sua versão clássica, "fatia" dados e paridade, através dos discos, como num arranjo. A única paridade é calculada através da operação \emph{bitwise} XOR. 
      \end{itemize}
   \end{frame}
 
@@ -167,6 +154,21 @@ onde o primeiro bit $1$ está na $i$-posição e o último bit $1$ está na $(i+
     \end{figure}
  \end{frame}
 
+
+  \begin{frame}{Motivação}
+     \begin{itemize}
+        \item Códigos Reed-Solomon (RS) são códigos de bloco, lineares e cíclicos (sobre anéis comutativos sob algumas condições).
+        \item Parametrizáveis $===>$ capacidade de correção de erros pode ser alterada facilmente.
+        \item RS são códigos MDS $===>$ as palavras-código apresentam máxima distância de Hamming entre si, permitida pelo número de dígitos de verificação de paridade do código.
+        \item Segundo os autores em \cite{Almeida:2007,Sloane:1977}, códigos RS são úteis para correção de erros em rajada.
+\begin{definition} {\bf Burst Errors} \index{Burst Errors} Uma sequência de erros em rajada ou \emph{burst errors} de tamanho $b$ é da forma:
+    \begin{align*}
+     (0, 0, \ldots, 0, 1, \ldots , 1, 0, \ldots, 0, 0)
+    \end{align*}
+onde o primeiro bit $1$ está na $i$-posição e o último bit $1$ está na $(i+b-1)$-posição e entre esses primeiro e último bits existe uma sequência de $b$ bits quaisquer.
+\end{definition}
+     \end{itemize}
+  \end{frame}
 
 % http://pic.dhe.ibm.com/infocenter/powersys/v3r1m5/index.jsp?topic=/arebk/raidsix.htm
   \begin{frame}{Motivação}
