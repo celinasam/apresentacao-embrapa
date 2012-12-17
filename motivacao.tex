@@ -139,7 +139,7 @@ veículos espaciais;
         \item RAID (\emph{Redundant Arrays of Inexpensive [Independent] Disks} (RAID), do ponto de vista de suas estruturas algébricas, é uma classe de códigos de blocos lineares.
         \item RAID é um método para prover tolerância a falhas ou alto desempenho em sistemas de armazenagem utilizando, para isso, distribuição de dados em diferentes dispositivos e uma codificação de correção de erros ou paridade ou replicação de dados~\cite{Ramakrishnan:2003}.
         \item RAID foi introduzido por D. A. Patterson na Universidade da California, Berkeley (UC Berkeley) em 1988 \cite{Patterson:1988}.
-        \item O código do Hadoop implementa RAID-5, que na sua versão clássica, "fatia" dados e paridade, através dos discos, como num arranjo. A única paridade é calculada através da operação \emph{bitwise} XOR. 
+        \item O código fonte do Hadoop implementa RAID-5, que na sua versão clássica, "fatia" dados e paridade, através dos discos, como num arranjo. A única paridade é calculada através da operação \emph{bitwise} XOR. 
      \end{itemize}
   \end{frame}
 
@@ -185,11 +185,11 @@ onde o primeiro bit $1$ está na $i$-posição e o último bit $1$ está na $(i+
   \begin{itemize}
      \item avaliação de desempenho, ganhos, e custos de diferentes
   estratégias de códigos corretores de erro;
-     \item implementação de otimizações ou extensões para o código que
+     \item implementação de otimizações ou extensões para o código fonte que
   atualmente implementa Reed-Solomon, tentando melhorar,
   principalmente, a parte de distribuição de blocos;
      \item implementação de novos algoritmos (Tornado e Turbo \emph{codes}) e
   extensão da interface atual para aceitá-los;
-     \item integração do código atual com o HDFS.
+     \item integração do código fonte atual com o HDFS.
      \end{itemize}
   \end{frame}
